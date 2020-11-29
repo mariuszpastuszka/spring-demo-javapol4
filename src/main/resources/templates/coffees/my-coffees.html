@@ -22,10 +22,10 @@
             }
 -->
             <tr th:each="machine : ${coffeeMachines}">
-                <td th:text="${machine.getVendor()}">Szajsung</td>
-                <td th:text="${machine.getCapacityInMl()}">5 000</td>
-                <td th:text="${machine.getTypeOfCoffee()}">The best</td>
-                <td th:text="${machine.isMilky()}">Yes, yes, yes</td>
+                <td th:text="${machine.vendor}">Szajsung</td>
+                <td th:text="${machine.capacityInMl}">5 000</td>
+                <td th:text="${machine.typeOfCoffee}">The best</td>
+                <td th:text="${machine.milky}">Yes, yes, yes</td>
             </tr>
         </tbody>
     </table>

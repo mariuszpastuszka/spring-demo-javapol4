@@ -15,6 +15,11 @@ public class CoffeeMachine {
     private String typeOfCoffee;
     private String vendor;
     private boolean milky;
+
+    //
+//    val name: String; -> final String name / get;
+//    var name: String; -> String name get/set;
+    //
 }
 
 // Valhalla
