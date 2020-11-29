@@ -55,3 +55,6 @@ public class MyFirstController {
 // Controller
 // Service
 // Repository
+// EJB - Enterprise Java Beans
+// SB - Spring Beans
+// POJO - Plain Old Java Objects
