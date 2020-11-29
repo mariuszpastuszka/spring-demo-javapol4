@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>My coffee machines</title>
+</head>
+<body>
+    <p th:text="'Hello ' + ${name} + ' ' + ${surname}">Hello Joe Doe</p>
+    <br>
+    <p>All my coffee machines</p>
+    <table>
+        <thead>
+            <tr>
+                <td>Vendor</td>
+                <td>Capacity in ml</td>
+                <td>Type of Coffee</td>
+                <td>Milky</td>
+            </tr>
+        </thead>
+        <tbody>
+<!--        for (var machine : coffeeMachines) {
+                machine.getVendor;
+                machine.get....
+            }
+-->
+            <tr th:each="machine : ${coffeeMachines}">
+                <td th:text="${machine.vendor}">Szajsung</td>
+                <td th:text="${machine.capacityInMl}">5 000</td>
+                <td th:text="${machine.typeOfCoffee}">The best</td>
+                <td th:text="${machine.milky}">Yes, yes, yes</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="#" th:href="@{/}">Home page</a>
+</body>
+</html>
