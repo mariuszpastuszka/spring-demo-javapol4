@@ -6,6 +6,7 @@ import pl.sda.javapol4.springdemojavapol4.entity.CoffeeMachine;
 import pl.sda.javapol4.springdemojavapol4.repository.CoffeeMachineRepository;
 
 import java.util.List;
+import java.util.Random;
 
 @Slf4j
 @Service
@@ -33,5 +34,14 @@ public class CoffeeMachineService {
         log.info("coffee machines: {}", coffeeMachines);
 
         return coffeeMachines;
+    }
+
+    public CoffeeMachine saveCoffeeMachine(CoffeeMachine objectToSave) {
+        log.info("saving coffee machine");
+
+        Random random = new Random();
+        // TODO: save in real db
+        objectToSave.setId(random.nextLong());
+        return objectToSave;
     }
 }
