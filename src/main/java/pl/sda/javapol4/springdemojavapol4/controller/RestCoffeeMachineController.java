@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.javapol4.springdemojavapol4.entity.CoffeeMachine;
@@ -38,8 +40,7 @@ public class RestCoffeeMachineController {
     @GetMapping("/coffee-machines/{id}")
     public CoffeeMachine findCoffeeMachineById(@PathVariable("id") long idik) {
         log.info("find coffee machine by id: [{}]", idik);
-        // ...
-        return null;
+        return coffeeMachineService.findCoffeeMachineById(idik);
     }
 
     // /coffee-machines/{producer}/model/{name}
@@ -49,6 +50,16 @@ public class RestCoffeeMachineController {
         log.info("find coffee machine by producer: [{}] and model name [{}]",
             producer, modelName);
         return null;
+    }
+
+    @PostMapping("/coffee-machines")
+    public CoffeeMachine createCoffeeMachine(@RequestBody CoffeeMachine objectToSave) {
+        log.info("saving new coffee machine: [{}]", objectToSave);
+
+        // TODO: save object
+
+        objectToSave.setId(5L);
+        return objectToSave;
     }
     /** - my json
      * [

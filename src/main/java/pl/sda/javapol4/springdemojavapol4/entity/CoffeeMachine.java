@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CoffeeMachine {
 
+    private Long id;
     private int capacityInMl;
     private String typeOfCoffee;
     private String vendor;

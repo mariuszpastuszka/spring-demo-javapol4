@@ -17,6 +17,16 @@ public class CoffeeMachineService {
         this.coffeeMachineRepository = coffeeMachineRepository;
     }
 
+    public CoffeeMachine findCoffeeMachineById(Long id) {
+        var result = giveMeMyCoffeeMachines().stream()
+            .filter(coffeeMachine -> coffeeMachine.getId() == id)
+            .findFirst()
+            .orElse(null);
+        log.info("found coffee machine with id: [{}] = [{}]", id, result);
+
+        return result;
+    }
+
     public List<CoffeeMachine> giveMeMyCoffeeMachines() {
         var coffeeMachines = coffeeMachineRepository.myFavouritesCoffeeMachines();
 
