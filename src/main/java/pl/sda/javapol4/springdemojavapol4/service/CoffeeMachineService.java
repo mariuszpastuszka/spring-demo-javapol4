@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.sda.javapol4.springdemojavapol4.entity.CoffeeMachine;
 import pl.sda.javapol4.springdemojavapol4.repository.CoffeeMachineRepository;
+import pl.sda.javapol4.springdemojavapol4.repository.CoffeeMachineSpringRepository;
 
 import java.util.List;
 import java.util.Random;
@@ -12,9 +13,9 @@ import java.util.Random;
 @Service
 public class CoffeeMachineService {
 
-    private final CoffeeMachineRepository coffeeMachineRepository;
+    private final CoffeeMachineSpringRepository coffeeMachineRepository;
 
-    public CoffeeMachineService(CoffeeMachineRepository coffeeMachineRepository) {
+    public CoffeeMachineService(CoffeeMachineSpringRepository coffeeMachineRepository) {
         this.coffeeMachineRepository = coffeeMachineRepository;
     }
 
@@ -29,7 +30,7 @@ public class CoffeeMachineService {
     }
 
     public List<CoffeeMachine> giveMeMyCoffeeMachines() {
-        var coffeeMachines = coffeeMachineRepository.myFavouritesCoffeeMachines();
+        var coffeeMachines = coffeeMachineRepository.findAll();
 
         log.info("coffee machines: {}", coffeeMachines);
 
@@ -38,10 +39,8 @@ public class CoffeeMachineService {
 
     public CoffeeMachine saveCoffeeMachine(CoffeeMachine objectToSave) {
         log.info("saving coffee machine");
-
-        Random random = new Random();
-        // TODO: save in real db
-        objectToSave.setId(random.nextLong());
-        return objectToSave;
+        var saved = coffeeMachineRepository.save(objectToSave);
+        log.info("object before saving: [{}] and after: [{}]", objectToSave, saved);
+        return saved;
     }
 }
