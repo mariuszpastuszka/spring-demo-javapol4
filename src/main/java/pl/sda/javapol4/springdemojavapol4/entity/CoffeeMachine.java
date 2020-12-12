@@ -7,14 +7,25 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
+@Table(name = "COFFEE_MACHINES")
 public class CoffeeMachine {
 
+    @Id
+    @GeneratedValue
     private Long id;
     @JsonProperty("capacity_in_ml")
+    @Column(name = "CAPACITY")
     private int capacityInMl;
 
     @JsonProperty("type_of_coffee")
